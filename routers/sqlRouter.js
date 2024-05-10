@@ -8,6 +8,7 @@ const approveUser = require("../controllers/v2/approveUser");
 const getUsersList = require("../controllers/v2/getUsersList");
 const addTask = require("../controllers/v2/addTask");
 const getTasks = require("../controllers/v2/getTasks");
+const getTaskByID = require("../controllers/v2/getTaskByID");
 
 const sqlRouter = express.Router();
 
@@ -20,5 +21,6 @@ sqlRouter.get("/getUsersList",tokenVerify,getUsersList);
 
 sqlRouter.post("/task",tokenVerify,addTask);
 sqlRouter.get("/task",tokenVerify,getTasks);
+sqlRouter.get("/task/:taskID",tokenVerify,getTaskByID);
 
 module.exports = sqlRouter;
