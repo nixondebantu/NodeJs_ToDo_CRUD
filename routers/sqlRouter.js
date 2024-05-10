@@ -11,6 +11,7 @@ const getTasks = require("../controllers/v2/getTasks");
 const getTaskByID = require("../controllers/v2/getTaskByID");
 const switchTaskStatus = require("../controllers/v2/switchTaskStatus");
 const editTask = require("../controllers/v2/editTask");
+const deleteTask = require("../controllers/v2/deleteTask");
 
 const sqlRouter = express.Router();
 
@@ -26,5 +27,6 @@ sqlRouter.get("/task",tokenVerify,getTasks);
 sqlRouter.get("/task/:taskID",tokenVerify,getTaskByID);
 sqlRouter.put("/toggleTask/:taskID",tokenVerify,switchTaskStatus);
 sqlRouter.put("/editTask/:taskID",tokenVerify,editTask);
+sqlRouter.delete("/task/:taskID",tokenVerify,deleteTask);
 
 module.exports = sqlRouter;
