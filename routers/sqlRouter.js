@@ -6,6 +6,7 @@ const getPendingUser = require("../controllers/v2/getPendingUser");
 const tokenVerify = require("../auth/tokenVerify");
 const approveUser = require("../controllers/v2/approveUser");
 const getUsersList = require("../controllers/v2/getUsersList");
+const addTask = require("../controllers/v2/addTask");
 
 const sqlRouter = express.Router();
 
@@ -15,5 +16,7 @@ sqlRouter.post("/login",login);
 sqlRouter.get("/getPendingUser",tokenVerify,getPendingUser);
 sqlRouter.post("/approveUser/:id",tokenVerify,approveUser);
 sqlRouter.get("/getUsersList",tokenVerify,getUsersList);
+
+sqlRouter.post("/task",tokenVerify,addTask);
 
 module.exports = sqlRouter;

@@ -20,6 +20,16 @@ const createUsersTable = async () => {
           approveStatus BOOLEAN
         )
       `);
+    await connection.query(`
+        CREATE TABLE IF NOT EXISTS tasks (
+          taskID INT AUTO_INCREMENT PRIMARY KEY,
+          id INT,
+          title VARCHAR(255) NOT NULL,
+          description TEXT,
+          status BOOLEAN DEFAULT false,
+          FOREIGN KEY (id) REFERENCES users(id)
+        )
+      `);
   } catch (error) {
     console.error("Error creating users table:", error);
   } finally {
